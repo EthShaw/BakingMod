@@ -1,0 +1,120 @@
+// For those who want the bleeding edge
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+		maven {
+			url "https://plugins.gradle.org/m2/"
+		}
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
+        classpath("gradle.plugin.nl.javadude.gradle.plugins:license-gradle-plugin:0.12.1") {
+            exclude module: 'guava'
+        }
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'idea'
+apply plugin: "com.github.hierynomus.license"
+
+license {
+    excludes(["**/*.properties", "**/*.lang", "**/*.json", "**/*.png", "**/*.txt", "**/*.info", "**/*.mcmeta"])
+}
+
+/*plugins {
+    id 'idea'
+    id 'scala'
+    id "net.minecraftforge.gradle.forge" version "2.0.2"
+}*/
+
+//Load config
+file "build.properties" withReader {
+    def prop = new Properties()
+    prop.load(it)
+    ext.config = new ConfigSlurper().parse prop
+}
+
+def buildNumber = 0
+def coreBuildNumber = 0
+
+archivesBaseName = config.baking_archivesBaseName
+version = config.baking_major + "." + config.baking_minor + "." + config.baking_patch + "-" + config.baking_release_type + "+" + buildNumber
+group = config.group
+
+minecraft {
+    version = config.minecraft_version + "-" + config.forge_version
+    runDir = "run"
+	useDepAts = true
+
+    // the mappings can be changed at any time, and must be in the following format.
+    // snapshot_YYYYMMDD   snapshot are built nightly.
+    // stable_#            stables are built at the discretion of the MCP team.
+    // Use non-default mappings at your own risk. they may not allways work.
+    // simply re-run your setup task after changing the mappings to update your workspace.
+    mappings = config.mappings
+    replace "@VERSION@", project.version
+    replace "@MCVERSION@", config.minecraft_version
+    replace ")//@DEPEND@//(", ", "
+    replace "@COREVERSION@", config.core_major + "." + config.core_minor + "." + config.core_patch + "-" + config.core_release_type + "+" + coreBuildNumber
+    replace "@FORGEVERSION@", config.forge_version
+}
+
+sourceSets {
+	main {
+		java {
+			srcDirs = ['src/main/java']
+		}
+		resources {
+			srcDirs = ['src/main/resources']
+		}
+	}
+}
+
+jar {
+    manifest.attributes "Main-Class": "net.fishdog5000.bakingmod.main.EntryPoint"
+}
+
+
+configurations {
+    provided
+}
+
+dependencies {
+    provided fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+sourceSets.main.compileClasspath += [configurations.provided]
+
+
+idea {
+	module {
+        outputDir = file('build/classes/main')
+		downloadJavadoc = true
+		downloadSources = true
+        scopes.PROVIDED.plus += [configurations.provided]
+    }
+}
+
+
+processResources {
+    // this will ensure that this task is redone when the versions change.
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+    inputs.property "url", config.baking_url
+
+    // replace the versions in mcmod.info
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+        expand 'version': project.version, 'mcversion': config.minecraft_version, 'url': config.baking_url
+    }
+
+    // copy everything else, thats not the mcmod.info
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}

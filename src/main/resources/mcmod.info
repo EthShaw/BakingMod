@@ -1,0 +1,17 @@
+[
+	{
+		"modid": "fishdogsbakingmod",
+		"name": "FishDog5000's Baking Mod",
+		"description": "This mod makes it so you have to bake things like cake and bread instead of craft them.",
+		"version": "${version}",
+		"mcversion": "${mcversion}",
+		"logoFile": "",
+		"url": "http://minecraft.curseforge.com/projects/fishdog5000s-baking-mod",
+		"updateUrl": "",
+		"authorList": ["FishDog5000"],
+		"credits": "",
+		"parent": "",
+		"screenshots": [],
+		"dependencies": []
+	}
+]

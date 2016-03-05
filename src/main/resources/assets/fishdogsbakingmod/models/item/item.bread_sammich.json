@@ -1,0 +1,6 @@
+{
+  "parent": "fishdog5000score:item/BaseItemModel",
+  "textures": {
+    "layer0": "missingno"
+  }
+}

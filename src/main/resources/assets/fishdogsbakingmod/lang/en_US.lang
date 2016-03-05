@@ -1,0 +1,78 @@
+####################
+# Item/Block Names #
+####################
+
+#Item names 
+item.fishdogsbakingmod.flour.name=Flour
+item.fishdogsbakingmod.bread_dough.name=Bread Dough
+item.fishdogsbakingmod.cake_batter.name=Cake Batter
+item.fishdogsbakingmod.cake_batter_unmixed.name=Cake Batter (Unmixed)
+item.fishdogsbakingmod.pumpkin_pie_mixture.name=Pumpkin Pie Mix
+item.fishdogsbakingmod.mixing_spoon.name=Mixing Spoon
+item.fishdogsbakingmod.disaster.name=Disaster
+item.fishdogsbakingmod.millstone.name=Millstone
+item.fishdogsbakingmod.butter.name=Butter
+item.fishdogsbakingmod.cookie_dough_blob.name=Cookie Dough (Unmixed)
+item.fishdogsbakingmod.cookie_dough.name=Cookie Dough
+item.fishdogsbakingmod.buttered_bread.name=Buttered Bread
+item.fishdogsbakingmod.bread_sammich.name=Bread Sammich
+
+
+
+
+#########################
+# Configuration options #
+#########################
+
+#HD texture config
+item.mixing_spoon.hdtextures=Use HD Textures: Mixing Spoon
+item.millstone.hdtextures=Use HD Textures: Millstone
+item.cookiedough.hdtextures=Use HD Textures: Cookie Dough
+item.cookiedoughblob.hdtextures=Use HD Textures: Cookie Dough (Unmixed)
+item.butter.hdtextures=Use HD Textures: Butter
+item.flour.hdtextures=Use HD Textures: Flour
+item.buttered_bread.hdtextures=Use HD Textures: Buttered Bread
+item.breaddough.hdtextures=Use HD Textures: Bread Dough
+
+#Crafting config
+item.bread.allowdefaultcrafting=Allow Default Recipe: Bread
+item.cake.allowdefaultcrafting=Allow Default Recipe: Cake
+item.pumpkinpie.allowdefaultcrafting=Allow Default Recipe: Pumpkin Pie
+item.cookies.allowdefaultcrafting=Allow Default Recipe: Cookies
+
+#Config descriptions
+item.mixing_spoon.hdtextures.comment=Use HD Textures for Mixing Spoon?
+item.millstone.hdtextures.comment=Use HD Textures for Millstone?
+item.cookiedough.hdtextures.comment=Use HD Textures for Cookie Dough?
+item.cookiedoughblob.hdtextures.comment=Use HD Textures for Unmixed Cookie Dough?
+item.butter.hdtextures.comment=Use HD Textures for Butter?
+item.flour.hdtextures.comment=Use HD Textures for Flour?
+item.buttered_bread.hdtextures.comment=Use HD Textures for Buttered Bread?
+item.breaddough.hdtextures.comment=Use HD Textures for Bread Dough?
+
+item.cake.allowdefaultcrafting.comment=Allow default Cake recipe? (requires minecraft restart)
+item.bread.allowdefaultcrafting.comment=Allow default Bread recipe? (requires minecraft restart)
+item.pumpkinpie.allowdefaultcrafting.comment=Allow default Pumpkin Pie recipe? (requires minecraft restart)
+item.cookies.allowdefaultcrafting.comment=Allow default Cookies recipe? (requires minecraft restart)
+
+requirerestartcatagory=Restart Required
+
+
+
+
+#############
+# Item Lore #
+#############
+
+#use \n for new line
+item.fishdogsbakingmod.mixing_spoon.lore=Used for mixing foods and sometimes churning butter.
+item.fishdogsbakingmod.disaster.lore=It might be edible but...\nI wouldn't eat it...\nSomething went wrong...
+item.fishdogsbakingmod.millstone.lore=Used for crushing and grinding\nthings such as gravel, cobblestone, and stone.\nAlso grinds wheat into flour.
+item.fishdogsbakingmod.cake_batter_unmixed.lore=You have to mix this with a\nmixing spoon before you can cook it.\nI wouldn't eat it yet.
+item.fishdogsbakingmod.cake_batter.lore=You have to cook this in a furnace.\nI wouldn't eat it yet.
+item.fishdogsbakingmod.pumpkin_pie_mixture.lore=You have to cook this in a furnace.
+item.fishdogsbakingmod.cookie_dough_blob.lore=You have to mix this with a\nmixing spoon before you can cook it.
+item.fishdogsbakingmod.cookie_dough.lore=You have to cook this in a furnace.
+item.fishdogsbakingmod.bread_dough.lore=You have to cook this in a furnace.
+item.fishdogsbakingmod.bread_dough.lore=You have to cook this in a furnace.
+item.fishdogsbakingmod.bread_sammich.lore=BREAD SAMMICH ENG GUH
