@@ -35,64 +35,64 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ClientProxy extends CommonProxy {
-	private List<ModelRegistration> multimodelsreg = new ArrayList<ModelRegistration>();
+    private List<ModelRegistration> multimodelsreg = new ArrayList<ModelRegistration>();
 
-	@Override
-	public String[] getValidConfig() {
-		return ArrayUtils.addAll(new String[] { ConfigManager.ConfigKeys.MIXING_SPOON_HD, ConfigManager.ConfigKeys.MILL_STONE_HD,
-						ConfigManager.ConfigKeys.COOKIE_DOUGH_HD, ConfigManager.ConfigKeys.COOKIE_DOUGH_CHUNK_HD,
-						ConfigManager.ConfigKeys.BUTTER_HD, ConfigManager.ConfigKeys.FLOUR_HD,
-						ConfigManager.ConfigKeys.BUTTERED_BREAD_HD, ConfigManager.ConfigKeys.BREAD_DOUGH_HD },
-				super.getValidConfig());
-	}
+    @Override
+    public String[] getValidConfig() {
+        return ArrayUtils.addAll(new String[] { ConfigManager.ConfigKeys.MIXING_SPOON_HD, ConfigManager.ConfigKeys.MILL_STONE_HD,
+                        ConfigManager.ConfigKeys.COOKIE_DOUGH_HD, ConfigManager.ConfigKeys.COOKIE_DOUGH_CHUNK_HD,
+                        ConfigManager.ConfigKeys.BUTTER_HD, ConfigManager.ConfigKeys.FLOUR_HD,
+                        ConfigManager.ConfigKeys.BUTTERED_BREAD_HD, ConfigManager.ConfigKeys.BREAD_DOUGH_HD },
+                super.getValidConfig());
+    }
 
-	@Override
-	public String[] getValidRestartConfig() {
-		return super.getValidRestartConfig();
-	}
+    @Override
+    public String[] getValidRestartConfig() {
+        return super.getValidRestartConfig();
+    }
 
-	@Override
-	public void registerModel(IBaseItem item, String name, int metadata, String[] locations, String defaultloc) {
-		multimodelsreg.add(new ModelRegistration(item, name, metadata, locations, defaultloc));
-	}
+    @Override
+    public void registerModel(IBaseItem item, String name, int metadata, String[] locations, String defaultloc) {
+        multimodelsreg.add(new ModelRegistration(item, name, metadata, locations, defaultloc));
+    }
 
-	@Override
-	public void registerModel(IBaseItem item, String name, String[] locations, String defaultloc) {
-		registerModel(item, name, 0, locations, defaultloc);
-	}
+    @Override
+    public void registerModel(IBaseItem item, String name, String[] locations, String defaultloc) {
+        registerModel(item, name, 0, locations, defaultloc);
+    }
 
-	@Override
-	public void registerRenderers() {
-		//ClientRegistry.bindTileEntitySpecialRenderer(TestTileEntity.class, new RenderBlockFoodWorktable());
-	}
+    @Override
+    public void registerRenderers() {
+        //ClientRegistry.bindTileEntitySpecialRenderer(TestTileEntity.class, new RenderBlockFoodWorktable());
+    }
 
-	@Override
-	public void init() {
-		super.init();
+    @Override
+    public void init() {
+        super.init();
 
-		for (ModelRegistration modelreg : multimodelsreg)
-			modelreg.item.setMultiTexture(FishdogsCore.setItemMultitexture(modelreg.item, modelreg.name, BakingMod.MODID, modelreg.locations, modelreg.defaultloc));
-		multimodelsreg = null;
-	}
+        for (ModelRegistration modelreg : multimodelsreg)
+            modelreg.item.setMultiTexture(FishdogsCore.setItemMultitexture(modelreg.item, modelreg.name, BakingMod.MODID, modelreg.locations, modelreg.defaultloc));
+        multimodelsreg = null;
+    }
 
-	@Override
-	public void reloadMultiTextures() {
-		BakingModItems.reloadTextures();
-	}
+    @Override
+    public void reloadMultiTextures() {
+        BakingModItems.reloadTextures();
+    }
 
-	private class ModelRegistration {
-		public final IBaseItem item;
-		public final String name;
-		public final String defaultloc;
-		public final String[] locations;
-		public final int metadata;
+    private class ModelRegistration {
+        public final IBaseItem item;
+        public final String name;
+        public final String defaultloc;
+        public final String[] locations;
+        public final int metadata;
 
-		public ModelRegistration(IBaseItem _item, String _name, int _metadata, String[] _locations, String _defaultloc) {
-			item = _item;
-			name = _name;
-			metadata = _metadata;
-			locations = _locations;
-			defaultloc = _defaultloc;
-		}
-	}
+        public ModelRegistration(IBaseItem _item, String _name, int _metadata, String[] _locations, String _defaultloc) {
+            item = _item;
+            name = _name;
+            metadata = _metadata;
+            locations = _locations;
+            defaultloc = _defaultloc;
+        }
+    }
 }

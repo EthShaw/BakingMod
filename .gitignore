@@ -1,5 +1,9 @@
+# Gradle
 /.gradle
 /build
+/classes
+
+#IntelliJ
 /run
 /out
 /.idea
@@ -8,4 +12,8 @@
 /*.iws
 /*.iml
 *.jar
+
+# Gradle Wrapper
 !/gradle/wrapper/gradle-wrapper.jar
+
+build_number.properties

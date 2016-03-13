@@ -36,14 +36,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConfigGUI extends GuiConfig {
-	public ConfigGUI(GuiScreen parent) {
-		super(parent, getConfigElementList(), BakingMod.MODID, false, false, GuiConfig.getAbridgedConfigPath(ConfigManager.config.toString()));
-	}
+    public ConfigGUI(GuiScreen parent) {
+        super(parent, getConfigElementList(), BakingMod.MODID, false, false, GuiConfig.getAbridgedConfigPath(ConfigManager.config.toString()));
+    }
 
-	private static List<IConfigElement> getConfigElementList() {
-		List<IConfigElement> list = new ArrayList<IConfigElement>();
-		list.add(new ConfigElement(ConfigManager.config.getCategory(Configuration.CATEGORY_GENERAL)));
-		list.add(new ConfigElement(ConfigManager.config.getCategory(BakingConstants.CATAGORY_REQUIRE_RESTART)));
-		return list;
-	}
+    private static List<IConfigElement> getConfigElementList() {
+        List<IConfigElement> list = new ArrayList<IConfigElement>();
+        list.add(new ConfigElement(ConfigManager.config.getCategory(Configuration.CATEGORY_GENERAL)));
+        list.add(new ConfigElement(ConfigManager.config.getCategory(BakingConstants.CATAGORY_REQUIRE_RESTART)));
+        return list;
+    }
 }

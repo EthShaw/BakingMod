@@ -30,24 +30,24 @@ import net.minecraftforge.fml.client.IModGuiFactory;
 import java.util.Set;
 
 public class GuiFactory implements IModGuiFactory {
-	@Override
-	public void initialize(Minecraft minecraftInstance) {
+    @Override
+    public void initialize(Minecraft minecraftInstance) {
 
-	}
+    }
 
-	@Override
-	public Class<? extends GuiScreen> mainConfigGuiClass() {
-		return ConfigGUI.class;
-	}
+    @Override
+    public Class<? extends GuiScreen> mainConfigGuiClass() {
+        return ConfigGUI.class;
+    }
 
-	@Override
-	public Set<IModGuiFactory.RuntimeOptionCategoryElement> runtimeGuiCategories() {
-		return null;
-	}
+    @Override
+    public Set<IModGuiFactory.RuntimeOptionCategoryElement> runtimeGuiCategories() {
+        return null;
+    }
 
-	@Override
-	public IModGuiFactory.RuntimeOptionGuiHandler getHandlerFor(IModGuiFactory.RuntimeOptionCategoryElement element) {
-		return null;
-	}
+    @Override
+    public IModGuiFactory.RuntimeOptionGuiHandler getHandlerFor(IModGuiFactory.RuntimeOptionCategoryElement element) {
+        return null;
+    }
 
 }

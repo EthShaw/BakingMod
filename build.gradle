@@ -6,9 +6,9 @@ buildscript {
             name = "forge"
             url = "http://files.minecraftforge.net/maven"
         }
-		maven {
-			url "https://plugins.gradle.org/m2/"
-		}
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
@@ -39,8 +39,27 @@ file "build.properties" withReader {
     ext.config = new ConfigSlurper().parse prop
 }
 
-def buildNumber = 0
-def coreBuildNumber = 0
+ext.buildNumber = 0
+
+//Load the build number config if it exists
+ext.confFile = file("build_number.properties")
+if (confFile.exists()) {
+    confFile.withReader {
+        ext.prop = new Properties()
+        prop.load(it)
+        ext.buildNumber = prop['build_number'].toInteger()
+        if (buildNumber == null)
+            buildNumber = 0
+        prop['build_number'] = (buildNumber + 1).toString()
+        prop.store(confFile.newWriter(), null)
+    }
+}
+
+build {
+    if (confFile.exists()) {
+        prop.store(confFile.newWriter(), null)
+    }
+}
 
 archivesBaseName = config.baking_archivesBaseName
 version = config.baking_major + "." + config.baking_minor + "." + config.baking_patch + "-" + config.baking_release_type + "+" + buildNumber
@@ -49,7 +68,7 @@ group = config.group
 minecraft {
     version = config.minecraft_version + "-" + config.forge_version
     runDir = "run"
-	useDepAts = true
+    useDepAts = true
 
     // the mappings can be changed at any time, and must be in the following format.
     // snapshot_YYYYMMDD   snapshot are built nightly.
@@ -60,43 +79,37 @@ minecraft {
     replace "@VERSION@", project.version
     replace "@MCVERSION@", config.minecraft_version
     replace ")//@DEPEND@//(", ", "
-    replace "@COREVERSION@", config.core_major + "." + config.core_minor + "." + config.core_patch + "-" + config.core_release_type + "+" + coreBuildNumber
+    replace "@COREVERSION@", config.core_major + "." + config.core_minor + "." + config.core_patch + "-" + config.core_release_type + "+" + config.core_build
     replace "@FORGEVERSION@", config.forge_version
 }
 
 sourceSets {
-	main {
-		java {
-			srcDirs = ['src/main/java']
-		}
-		resources {
-			srcDirs = ['src/main/resources']
-		}
-	}
+    main {
+        java {
+            srcDirs = ['src/main/java']
+        }
+        resources {
+            srcDirs = ['src/main/resources']
+        }
+    }
 }
 
 jar {
     manifest.attributes "Main-Class": "net.fishdog5000.bakingmod.main.EntryPoint"
 }
 
-
-configurations {
-    provided
-}
-
 dependencies {
-    provided fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(dir: 'libs', include: ['*.jar'])
 }
-
-sourceSets.main.compileClasspath += [configurations.provided]
-
 
 idea {
-	module {
+    module {
         outputDir = file('build/classes/main')
-		downloadJavadoc = true
-		downloadSources = true
-        scopes.PROVIDED.plus += [configurations.provided]
+        downloadJavadoc = true
+        downloadSources = true
+    }
+    project {
+        languageLevel = '1.7'
     }
 }
 
@@ -105,12 +118,11 @@ processResources {
     // this will ensure that this task is redone when the versions change.
     inputs.property "version", project.version
     inputs.property "mcversion", project.minecraft.version
-    inputs.property "url", config.baking_url
 
     // replace the versions in mcmod.info
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
-        expand 'version': project.version, 'mcversion': config.minecraft_version, 'url': config.baking_url
+        expand 'version': project.version, 'mcversion': config.minecraft_version
     }
 
     // copy everything else, thats not the mcmod.info

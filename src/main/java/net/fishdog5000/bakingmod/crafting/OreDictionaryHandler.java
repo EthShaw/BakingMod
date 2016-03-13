@@ -28,22 +28,22 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class OreDictionaryHandler {
 
-	public static void registerItemOres() {
-		OreDictionary.registerOre("foodButter", BakingModItems.butter);
-		OreDictionary.registerOre("foodCookieDough", BakingModItems.cookie_dough);
-		OreDictionary.registerOre("foodDough", BakingModItems.bread_dough);
-		OreDictionary.registerOre("foodBreadDough", BakingModItems.bread_dough);
-		OreDictionary.registerOre("foodFlour", BakingModItems.flour);
-		OreDictionary.registerOre("foodUnmixedCakeBatter", BakingModItems.cake_batter_unmixed);
-		OreDictionary.registerOre("foodCakeBatter", BakingModItems.cake_batter);
-		OreDictionary.registerOre("foodPumpkinPieMix", BakingModItems.pumpkin_pie_mixture);
-		OreDictionary.registerOre("foodDisaster", BakingModItems.disaster);
-		OreDictionary.registerOre("foodCookieDoughBlob", BakingModItems.cookie_dough_blob);
-		OreDictionary.registerOre("foodButteredBread", BakingModItems.buttered_bread);
-		OreDictionary.registerOre("foodBreadSandwich", BakingModItems.bread_sammich);
-	}
+    public static void registerItemOres() {
+        OreDictionary.registerOre("foodButter", BakingModItems.butter);
+        OreDictionary.registerOre("foodCookieDough", BakingModItems.cookie_dough);
+        OreDictionary.registerOre("foodDough", BakingModItems.bread_dough);
+        OreDictionary.registerOre("foodBreadDough", BakingModItems.bread_dough);
+        OreDictionary.registerOre("foodFlour", BakingModItems.flour);
+        OreDictionary.registerOre("foodUnmixedCakeBatter", BakingModItems.cake_batter_unmixed);
+        OreDictionary.registerOre("foodCakeBatter", BakingModItems.cake_batter);
+        OreDictionary.registerOre("foodPumpkinPieMix", BakingModItems.pumpkin_pie_mixture);
+        OreDictionary.registerOre("foodDisaster", BakingModItems.disaster);
+        OreDictionary.registerOre("foodCookieDoughBlob", BakingModItems.cookie_dough_blob);
+        OreDictionary.registerOre("foodButteredBread", BakingModItems.buttered_bread);
+        OreDictionary.registerOre("foodBreadSandwich", BakingModItems.bread_sammich);
+    }
 
-	public static void registerBlockOres() {
+    public static void registerBlockOres() {
 
-	}
+    }
 }

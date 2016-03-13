@@ -26,40 +26,40 @@ package net.fishdog5000.bakingmod.handler;
 import net.fishdog5000.core.basestuff.IBaseItem;
 
 public class CommonProxy {
-	public void registerModel(IBaseItem item, String name, int metadata, String[] locations, String defaultloc) {
+    public void registerModel(IBaseItem item, String name, int metadata, String[] locations, String defaultloc) {
 
-	}
+    }
 
-	public void registerRenderers() {
-	}
+    public void registerRenderers() {
+    }
 
-	/**
-	 * Gets all valid configuration options for the client/server that require the game to restart
-	 * @return The valid configuration options
-	 */
-	public String[] getValidRestartConfig() {
-		return new String[] { ConfigManager.ConfigKeys.CAKE_DEFAULT_CRAFTING_ALLOWED, ConfigManager.ConfigKeys.BREAD_DEFAULT_CRAFTING_ALLOWED,
-				ConfigManager.ConfigKeys.PUMPKIN_PIE_DEFAULT_CRAFTING_ALLOWED, ConfigManager.ConfigKeys.COOKIE_DEFAULT_CRAFTING_ALLOWED };
-	}
+    /**
+     * Gets all valid configuration options for the client/server that require the game to restart
+     * @return The valid configuration options
+     */
+    public String[] getValidRestartConfig() {
+        return new String[] { ConfigManager.ConfigKeys.CAKE_DEFAULT_CRAFTING_ALLOWED, ConfigManager.ConfigKeys.BREAD_DEFAULT_CRAFTING_ALLOWED,
+                ConfigManager.ConfigKeys.PUMPKIN_PIE_DEFAULT_CRAFTING_ALLOWED, ConfigManager.ConfigKeys.COOKIE_DEFAULT_CRAFTING_ALLOWED };
+    }
 
-	/**
-	 * Gets all valid configuration options for the client/server that don't require the game to restart
-	 * @return The valid configuration options
-	 */
-	public String[] getValidConfig() {
-		return new String[] {};
-	}
+    /**
+     * Gets all valid configuration options for the client/server that don't require the game to restart
+     * @return The valid configuration options
+     */
+    public String[] getValidConfig() {
+        return new String[] {};
+    }
 
-	public void registerRenderInformation() {
-	}
+    public void registerRenderInformation() {
+    }
 
-	public void init() {
-		registerRenderInformation();
-	}
+    public void init() {
+        registerRenderInformation();
+    }
 
-	public void registerModel(IBaseItem item, String name, String[] locations, String defaultloc) {
-	}
+    public void registerModel(IBaseItem item, String name, String[] locations, String defaultloc) {
+    }
 
-	public void reloadMultiTextures() {
-	}
+    public void reloadMultiTextures() {
+    }
 }

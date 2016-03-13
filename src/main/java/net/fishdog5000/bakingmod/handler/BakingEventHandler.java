@@ -31,23 +31,24 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.ItemSmeltedEvent;
 
 public class BakingEventHandler {
-	/*
-	 * Reloads the configuration file.
-	 */
-	@SubscribeEvent
-	public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent eventArgs) {
-		if (eventArgs.modID.equals(BakingMod.MODID))
-			BakingMod.BAKING_CONFIGURATION.configure();
-	}
 
-	/*
-	 * Event for giving the player the cake and bread achievements after smelting.
-	 */
-	@SubscribeEvent
-	public void onSmelt(ItemSmeltedEvent event) {
-		if (event.smelting.getItem() == Items.cake)
-			event.player.addStat(AchievementList.bakeCake, 1);
-		if (event.smelting.getItem() == Items.bread)
-			event.player.addStat(AchievementList.makeBread, 1);
-	}
+    /*
+     * Reloads the configuration file.
+     */
+    @SubscribeEvent
+    public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent eventArgs) {
+        if (eventArgs.modID.equals(BakingMod.MODID))
+            BakingMod.BAKING_CONFIGURATION.configure();
+    }
+
+    /*
+     * Event for giving the player the cake and bread achievements after smelting.
+     */
+    @SubscribeEvent
+    public void onSmelt(ItemSmeltedEvent event) {
+        if (event.smelting.getItem() == Items.cake)
+            event.player.addStat(AchievementList.bakeCake, 1);
+        if (event.smelting.getItem() == Items.bread)
+            event.player.addStat(AchievementList.makeBread, 1);
+    }
 }

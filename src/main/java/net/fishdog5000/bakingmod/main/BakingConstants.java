@@ -24,5 +24,5 @@
 package net.fishdog5000.bakingmod.main;
 
 public final class BakingConstants {
-	public static final String CATAGORY_REQUIRE_RESTART = "requirerestartcatagory";
+    public static final String CATAGORY_REQUIRE_RESTART = "requirerestartcatagory";
 }

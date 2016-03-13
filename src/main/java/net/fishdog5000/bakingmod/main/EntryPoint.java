@@ -26,14 +26,14 @@ package net.fishdog5000.bakingmod.main;
 import javax.swing.*;
 
 class EntryPoint {
-	public static void main(String[] args) {
-		try {
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		String msg = "You can't run this jar file. You are supposed to put it in the Minecraft mods folder!";
-		System.out.println(msg);
-		JOptionPane.showMessageDialog(null, msg, "ERROR!", JOptionPane.ERROR_MESSAGE);
-	}
+    public static void main(String[] args) {
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        String msg = "You can't run this jar file. You are supposed to put it in the Minecraft mods folder!";
+        System.out.println(msg);
+        JOptionPane.showMessageDialog(null, msg, "ERROR!", JOptionPane.ERROR_MESSAGE);
+    }
 }
