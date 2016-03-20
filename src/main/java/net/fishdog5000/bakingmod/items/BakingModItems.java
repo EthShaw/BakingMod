@@ -30,6 +30,7 @@ import net.fishdog5000.core.basestuff.BaseItem;
 import net.fishdog5000.core.basestuff.ItemBasicFood;
 import net.fishdog5000.core.basestuff.ItemDurability;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemStack;
@@ -59,43 +60,43 @@ public class BakingModItems {
     public static void init() {
         // create items
         flour = new BaseItem("flour", CreativeTabs.tabFood, MODID);
-
+        //todo potion effects redo
         bread_dough = new ItemBasicFood("bread_dough", CreativeTabs.tabFood, 3, 0.3F, false, true, MODID);
 
-        cake_batter_unmixed = new ItemBasicFood("cake_batter_unmixed", CreativeTabs.tabFood, 6, 0.5F, false, new int[] {
-                Potion.blindness.id, Potion.confusion.id, Potion.moveSlowdown.id, Potion.hunger.id },
+        cake_batter_unmixed = new ItemBasicFood("cake_batter_unmixed", CreativeTabs.tabFood, 6, 0.5F, false, new Potion[] {
+                MobEffects.blindness, MobEffects.confusion, MobEffects.moveSlowdown, MobEffects.hunger },
                 new int[] { 400, 500, 600, 400 },
                 new int[] { 2, 6, 1, 3 }, 95.5F, true, MODID);
 
-        cake_batter = new ItemBasicFood("cake_batter", CreativeTabs.tabFood, 6, 0.5F, false, new int[] {
-                Potion.blindness.id, Potion.confusion.id, Potion.moveSlowdown.id, Potion.hunger.id },
+        cake_batter = new ItemBasicFood("cake_batter", CreativeTabs.tabFood, 6, 0.5F, false, new Potion[] {
+                MobEffects.blindness, MobEffects.confusion, MobEffects.moveSlowdown, MobEffects.hunger },
                 new int[] { 400, 400, 600, 400 },
                 new int[] { 2, 5, 1, 3 }, 85.5F, true, MODID);
 
-        pumpkin_pie_mixture = new ItemBasicFood("pumpkin_pie_mixture", CreativeTabs.tabFood, 4, 1.0F, false, new int[] {
-                Potion.hunger.id, Potion.confusion.id },
+        pumpkin_pie_mixture = new ItemBasicFood("pumpkin_pie_mixture", CreativeTabs.tabFood, 4, 1.0F, false, new Potion[] {
+                MobEffects.hunger, MobEffects.confusion },
                 new int[] { 400, 400 },
                 new int[] { 2, 1 }, 20F, true, MODID);
 
         mixing_spoon = new ItemDurability("mixing_spoon", CreativeTabs.tabMisc, 200, true, MODID).setEnchantability(ToolMaterial.WOOD.getEnchantability());
 
-        disaster = new ItemBasicFood("disaster", CreativeTabs.tabFood, 1, 0F, false, new int[] { Potion.blindness.id,
-                Potion.confusion.id, Potion.moveSlowdown.id, Potion.hunger.id, Potion.nightVision.id, Potion.digSlowdown.id },
+        disaster = new ItemBasicFood("disaster", CreativeTabs.tabFood, 1, 0F, false, new Potion[] { MobEffects.blindness,
+                MobEffects.confusion, MobEffects.moveSlowdown, MobEffects.hunger, MobEffects.nightVision, MobEffects.digSlowdown },
                 new int[] { 610, 620, 630, 640, 630, 650 }, new int[] { 2, 5, 1, 3, 1, 2 }, 87.5F, true, MODID);
 
         millstone = new ItemDurability("millstone", CreativeTabs.tabMisc, 50, true, MODID).setEnchantability(ToolMaterial.STONE.getEnchantability());
 
-        butter = new ItemBasicFood("butter", CreativeTabs.tabFood, 2, 0.5F, false, new int[] { Potion.moveSlowdown.id },
+        butter = new ItemBasicFood("butter", CreativeTabs.tabFood, 2, 0.5F, false, new Potion[] { MobEffects.moveSlowdown },
                 new int[] { 400 }, new int[] { 3 }, 50F, MODID);
 
         cookie_dough_blob = new BaseItem("cookie_dough_blob", CreativeTabs.tabFood, true, MODID);
 
-        cookie_dough = new ItemBasicFood("cookie_dough", CreativeTabs.tabFood, 1, 0F, false, new int[] { Potion.hunger.id },
+        cookie_dough = new ItemBasicFood("cookie_dough", CreativeTabs.tabFood, 1, 0F, false, new Potion[] { MobEffects.hunger },
                 new int[] { 400 }, new int[] { 3 }, 15F, true, MODID);
 
         buttered_bread = new ItemBasicFood("buttered_bread", CreativeTabs.tabFood, 10, 2F, false, MODID);
 
-        bread_sammich = new ItemBasicFood("bread_sammich", CreativeTabs.tabFood, 15, 1.9F/* 0.1 extra */, false, true, MODID);
+        bread_sammich = new ItemBasicFood("bread_sammich", CreativeTabs.tabFood, 15, 1.9F/* 0.1 extra */, false, MODID);
 
         // register items
         FishdogsCore.registerItem(flour, MODID);

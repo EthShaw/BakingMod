@@ -81,13 +81,13 @@ public class ClientProxy extends CommonProxy {
     }
 
     private class ModelRegistration {
-        public final IBaseItem item;
-        public final String name;
-        public final String defaultloc;
-        public final String[] locations;
-        public final int metadata;
+        final IBaseItem item;
+        final String name;
+        final String defaultloc;
+        final String[] locations;
+        final int metadata;
 
-        public ModelRegistration(IBaseItem _item, String _name, int _metadata, String[] _locations, String _defaultloc) {
+        ModelRegistration(IBaseItem _item, String _name, int _metadata, String[] _locations, String _defaultloc) {
             item = _item;
             name = _name;
             metadata = _metadata;

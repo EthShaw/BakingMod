@@ -44,7 +44,7 @@ import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.Marker;
 
 //@formatter:off
-@Mod(modid = BakingMod.MODID, name = BakingMod.NAME, guiFactory = "net.fishdog5000.bakingmod.client.GuiFactory", version = BakingMod.VERSION)//@DEPEND@//(dependencies="required-after:fishdog5000score@[@COREVERSION@,);required-after:Forge@[@FORGEVERSION@,)")
+@Mod(modid = BakingMod.MODID, name = BakingMod.NAME, acceptedMinecraftVersions = "", guiFactory = "net.fishdog5000.bakingmod.client.GuiFactory", version = BakingMod.VERSION)//@DEPEND@//(dependencies="required-after:fishdog5000score@[@COREVERSION@,)")
 //@formatter:on
 public class BakingMod {
     public static final String MODID = "fishdogsbakingmod",
