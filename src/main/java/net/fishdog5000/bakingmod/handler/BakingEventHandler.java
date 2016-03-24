@@ -37,7 +37,7 @@ public class BakingEventHandler {
      */
     @SubscribeEvent
     public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent eventArgs) {
-        if (eventArgs.modID.equals(BakingMod.MODID))
+        if (eventArgs.getModID().equals(BakingMod.MODID))
             BakingMod.BAKING_CONFIGURATION.configure();
     }
 
