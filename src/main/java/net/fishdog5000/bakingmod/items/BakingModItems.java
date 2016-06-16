@@ -36,6 +36,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
+import net.minecraftforge.fml.common.IFuelHandler;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -60,45 +61,45 @@ public class BakingModItems {
 
     public static void init() {
         // create items
-        flour = new BaseItem("flour", CreativeTabs.tabFood, MODID);
-        bread_dough = new ItemBasicFood("bread_dough", CreativeTabs.tabFood, 3, 0.3F, false, true, MODID);
+        flour = new BaseItem("flour", CreativeTabs.FOOD, MODID);
+        bread_dough = new ItemBasicFood("bread_dough", CreativeTabs.FOOD, 3, 0.3F, false, true, MODID);
 
-        cake_batter_unmixed = new ItemBasicFood("cake_batter_unmixed", CreativeTabs.tabFood, 6, 0.5F, false, new PotionEffectGroup[] {
-                new PotionEffectGroup(MobEffects.blindness, 400, 2), new PotionEffectGroup(MobEffects.confusion, 500, 6),
-                new PotionEffectGroup(MobEffects.moveSlowdown, 600, 1), new PotionEffectGroup(MobEffects.hunger, 400, 3) },
+        cake_batter_unmixed = new ItemBasicFood("cake_batter_unmixed", CreativeTabs.FOOD, 6, 0.5F, false, new PotionEffectGroup[] {
+                new PotionEffectGroup(MobEffects.BLINDNESS, 400, 2), new PotionEffectGroup(MobEffects.NAUSEA, 500, 6),
+                new PotionEffectGroup(MobEffects.SLOWNESS, 600, 1), new PotionEffectGroup(MobEffects.HUNGER, 400, 3) },
                 95.5F, true, MODID);
 
-        cake_batter = new ItemBasicFood("cake_batter", CreativeTabs.tabFood, 6, 0.5F, false, new PotionEffectGroup[] {
-                new PotionEffectGroup(MobEffects.blindness, 400, 2), new PotionEffectGroup(MobEffects.confusion, 400, 5),
-                new PotionEffectGroup(MobEffects.moveSlowdown, 600, 1), new PotionEffectGroup(MobEffects.hunger, 400, 3) },
+        cake_batter = new ItemBasicFood("cake_batter", CreativeTabs.FOOD, 6, 0.5F, false, new PotionEffectGroup[] {
+                new PotionEffectGroup(MobEffects.BLINDNESS, 400, 2), new PotionEffectGroup(MobEffects.NAUSEA, 400, 5),
+                new PotionEffectGroup(MobEffects.SLOWNESS, 600, 1), new PotionEffectGroup(MobEffects.HUNGER, 400, 3) },
                 85.5F, true, MODID);
 
-        pumpkin_pie_mixture = new ItemBasicFood("pumpkin_pie_mixture", CreativeTabs.tabFood, 4, 1.0F, false, new PotionEffectGroup[] {
-                new PotionEffectGroup(MobEffects.hunger, 400, 2), new PotionEffectGroup(MobEffects.confusion, 400, 1) },
+        pumpkin_pie_mixture = new ItemBasicFood("pumpkin_pie_mixture", CreativeTabs.FOOD, 4, 1.0F, false, new PotionEffectGroup[] {
+                new PotionEffectGroup(MobEffects.HUNGER, 400, 2), new PotionEffectGroup(MobEffects.NAUSEA, 400, 1) },
                 20F, true, MODID);
 
-        mixing_spoon = new ItemDurability("mixing_spoon", CreativeTabs.tabMisc, 200, true, MODID)
+        mixing_spoon = new ItemDurability("mixing_spoon", CreativeTabs.MISC, 200, true, MODID)
                 .setEnchantability(ToolMaterial.WOOD.getEnchantability());
 
-        disaster = new ItemBasicFood("disaster", CreativeTabs.tabFood, 1, 0F, false, new PotionEffectGroup[] {
-                new PotionEffectGroup(MobEffects.blindness, 610, 2), new PotionEffectGroup(MobEffects.confusion, 620, 5),
-                new PotionEffectGroup(MobEffects.moveSlowdown, 630, 1), new PotionEffectGroup(MobEffects.hunger, 640, 3),
-                new PotionEffectGroup(MobEffects.nightVision, 630, 1), new PotionEffectGroup(MobEffects.digSlowdown, 650, 2) },
+        disaster = new ItemBasicFood("disaster", CreativeTabs.FOOD, 1, 0F, false, new PotionEffectGroup[] {
+                new PotionEffectGroup(MobEffects.BLINDNESS, 610, 2), new PotionEffectGroup(MobEffects.NAUSEA, 620, 5),
+                new PotionEffectGroup(MobEffects.SLOWNESS, 630, 1), new PotionEffectGroup(MobEffects.HUNGER, 640, 3),
+                new PotionEffectGroup(MobEffects.NIGHT_VISION, 630, 1), new PotionEffectGroup(MobEffects.MINING_FATIGUE, 650, 2) },
                 87.5F, true, MODID);
 
-        millstone = new ItemDurability("millstone", CreativeTabs.tabMisc, 50, true, MODID).setEnchantability(ToolMaterial.STONE.getEnchantability());
+        millstone = new ItemDurability("millstone", CreativeTabs.MISC, 50, true, MODID).setEnchantability(ToolMaterial.STONE.getEnchantability());
 
-        butter = new ItemBasicFood("butter", CreativeTabs.tabFood, 2, 0.5F, false, MODID);
-        butter.setPotionEffect(new PotionEffect(MobEffects.moveSlowdown, 400, 3), 0.50F);
+        butter = new ItemBasicFood("butter", CreativeTabs.FOOD, 2, 0.5F, false, MODID);
+        butter.setPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 400, 3), 0.50F);
 
-        cookie_dough_blob = new BaseItem("cookie_dough_blob", CreativeTabs.tabFood, true, MODID);
+        cookie_dough_blob = new BaseItem("cookie_dough_blob", CreativeTabs.FOOD, true, MODID);
 
-        cookie_dough = new ItemBasicFood("cookie_dough", CreativeTabs.tabFood, 1, 0F, false, true, MODID);
-        cookie_dough.setPotionEffect(new PotionEffect(MobEffects.hunger, 400, 3), 0.15F);
+        cookie_dough = new ItemBasicFood("cookie_dough", CreativeTabs.FOOD, 1, 0F, false, true, MODID);
+        cookie_dough.setPotionEffect(new PotionEffect(MobEffects.HUNGER, 400, 3), 0.15F);
 
-        buttered_bread = new ItemBasicFood("buttered_bread", CreativeTabs.tabFood, 10, 2F, false, MODID);
+        buttered_bread = new ItemBasicFood("buttered_bread", CreativeTabs.FOOD, 10, 2F, false, MODID);
 
-        bread_sammich = new ItemBasicFood("bread_sammich", CreativeTabs.tabFood, 15, 1.9F/* 0.1 extra */, false, MODID);
+        bread_sammich = new ItemBasicFood("bread_sammich", CreativeTabs.FOOD, 15, 1.9F/* 0.1 extra */, false, MODID);
 
         // register items
         FishdogsCore.registerItem(flour, MODID);
@@ -139,6 +140,15 @@ public class BakingModItems {
 
         locations = new String[] { MODID + ":buttered_bread_x32", MODID + ":buttered_bread_x16" };
         BakingMod.proxy.registerModel(buttered_bread, buttered_bread.getName(), locations, MODID + ":buttered_bread_x" + Byte.toString(ConfigManager.buttered_bread_size));
+
+        GameRegistry.registerFuelHandler(new IFuelHandler() {
+            @Override
+            public int getBurnTime(ItemStack fuel) {
+                if (fuel.getItem() == mixing_spoon)
+                    return 425;
+                return 0;
+            }
+        });
     }
 
     public static void addDisaster() {

@@ -37,11 +37,9 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.Marker;
 
 //@formatter:off
 @Mod(modid = BakingMod.MODID, name = BakingMod.NAME, acceptedMinecraftVersions = "", guiFactory = "net.fishdog5000.bakingmod.client.GuiFactory", version = BakingMod.VERSION)//@DEPEND@//(dependencies="required-after:fishdog5000score@[@COREVERSION@,)")
@@ -51,7 +49,7 @@ public class BakingMod {
             NAME = "Fishdog5000's Baking Mod",
             MCVERSION = "@MCVERSION@",
             VERSION = "@VERSION@";
-            //VERSIONS_URL = "http://pastebin.com/raw.php?i=Qfa74bZe";
+    //VERSIONS_URL = "http://pastebin.com/raw.php?i=Qfa74bZe";
 
     public static Logger logger;
 
@@ -97,13 +95,13 @@ public class BakingMod {
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
         if (!ConfigManager.defaultCraftCake)
-            FishdogsCore.removeRecipe(Items.cake);
+            FishdogsCore.removeRecipe(Items.CAKE);
         if (!ConfigManager.defaultCraftBread)
-            FishdogsCore.removeRecipe(Items.bread);
+            FishdogsCore.removeRecipe(Items.BREAD);
         if (!ConfigManager.defaultCraftPumpkinPie)
-            FishdogsCore.removeRecipe(Items.pumpkin_pie);
+            FishdogsCore.removeRecipe(Items.PUMPKIN_PIE);
         if (!ConfigManager.defaultCraftCookies)
-            FishdogsCore.removeRecipe(Items.cookie);
+            FishdogsCore.removeRecipe(Items.COOKIE);
 
         logger.info("##################Baking mod ready!##################");
     }

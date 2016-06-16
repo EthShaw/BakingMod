@@ -29,6 +29,7 @@ import net.fishdog5000.bakingmod.items.BakingModItems;
 import net.fishdog5000.bakingmod.main.BakingMod;
 import net.fishdog5000.core.FishdogsCore;
 import net.fishdog5000.core.basestuff.IBaseItem;
+import net.minecraft.client.resources.I18n;
 import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.ArrayList;
@@ -78,6 +79,11 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void reloadMultiTextures() {
         BakingModItems.reloadTextures();
+    }
+
+    @Override
+    public String translate(String key) {
+        return I18n.format(key);
     }
 
     private class ModelRegistration {

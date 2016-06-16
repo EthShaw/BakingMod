@@ -46,9 +46,9 @@ public class BakingEventHandler {
      */
     @SubscribeEvent
     public void onSmelt(ItemSmeltedEvent event) {
-        if (event.smelting.getItem() == Items.cake)
-            event.player.addStat(AchievementList.bakeCake, 1);
-        if (event.smelting.getItem() == Items.bread)
-            event.player.addStat(AchievementList.makeBread, 1);
+        if (event.smelting.getItem() == Items.CAKE)
+            event.player.addStat(AchievementList.BAKE_CAKE, 1);
+        if (event.smelting.getItem() == Items.BREAD)
+            event.player.addStat(AchievementList.MAKE_BREAD, 1);
     }
 }

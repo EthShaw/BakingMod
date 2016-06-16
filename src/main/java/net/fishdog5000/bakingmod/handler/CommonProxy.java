@@ -62,4 +62,8 @@ public class CommonProxy {
 
     public void reloadMultiTextures() {
     }
+
+    public String translate(String key) {
+        return key;
+    }
 }

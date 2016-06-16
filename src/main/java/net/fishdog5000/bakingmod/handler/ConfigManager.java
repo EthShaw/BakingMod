@@ -27,7 +27,7 @@ import net.fishdog5000.bakingmod.main.BakingConstants;
 import net.fishdog5000.bakingmod.main.BakingMod;
 import net.fishdog5000.core.FishdogsCore;
 import net.fishdog5000.core.basestuff.BaseConfig;
-import net.minecraft.util.text.translation.I18n;
+import net.minecraft.client.resources.I18n;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
@@ -68,7 +68,7 @@ public class ConfigManager extends BaseConfig {
         boolean bool;
 
         if (FishdogsCore.proxy().isClient()) {
-            comment = I18n.translateToLocal(ConfigKeys.MIXING_SPOON_HD + ConfigKeys.COMMENT_EXTENTION);
+            comment = BakingMod.proxy.translate(ConfigKeys.MIXING_SPOON_HD + ConfigKeys.COMMENT_EXTENTION);
             name = ConfigKeys.MIXING_SPOON_HD;
             bool = getConfigBool(name, comment, true);
             if (bool)
@@ -76,7 +76,7 @@ public class ConfigManager extends BaseConfig {
             else
                 mixing_spoon_size = 16;
 
-            comment = I18n.translateToLocal(ConfigKeys.MILL_STONE_HD + ConfigKeys.COMMENT_EXTENTION);
+            comment = BakingMod.proxy.translate(ConfigKeys.MILL_STONE_HD + ConfigKeys.COMMENT_EXTENTION);
             name = ConfigKeys.MILL_STONE_HD;
             bool = getConfigBool(name, comment, true);
             if (bool)
@@ -84,7 +84,7 @@ public class ConfigManager extends BaseConfig {
             else
                 millstone_size = 16;
 
-            comment = I18n.translateToLocal(ConfigKeys.COOKIE_DOUGH_HD + ConfigKeys.COMMENT_EXTENTION);
+            comment = BakingMod.proxy.translate(ConfigKeys.COOKIE_DOUGH_HD + ConfigKeys.COMMENT_EXTENTION);
             name = ConfigKeys.COOKIE_DOUGH_HD;
             bool = getConfigBool(name, comment, true);
             if (bool)
@@ -92,7 +92,7 @@ public class ConfigManager extends BaseConfig {
             else
                 cookie_dough_size = 16;
 
-            comment = I18n.translateToLocal(ConfigKeys.COOKIE_DOUGH_CHUNK_HD + ConfigKeys.COMMENT_EXTENTION);
+            comment = BakingMod.proxy.translate(ConfigKeys.COOKIE_DOUGH_CHUNK_HD + ConfigKeys.COMMENT_EXTENTION);
             name = ConfigKeys.COOKIE_DOUGH_CHUNK_HD;
             bool = getConfigBool(name, comment, true);
             if (bool)
@@ -100,7 +100,7 @@ public class ConfigManager extends BaseConfig {
             else
                 cookie_dough_blob_size = 16;
 
-            comment = I18n.translateToLocal(ConfigKeys.BUTTER_HD + ConfigKeys.COMMENT_EXTENTION);
+            comment = BakingMod.proxy.translate(ConfigKeys.BUTTER_HD + ConfigKeys.COMMENT_EXTENTION);
             name = ConfigKeys.BUTTER_HD;
             bool = getConfigBool(name, comment, true);
             if (bool)
@@ -108,7 +108,7 @@ public class ConfigManager extends BaseConfig {
             else
                 butter_size = 16;
 
-            comment = I18n.translateToLocal(ConfigKeys.FLOUR_HD + ConfigKeys.COMMENT_EXTENTION);
+            comment = BakingMod.proxy.translate(ConfigKeys.FLOUR_HD + ConfigKeys.COMMENT_EXTENTION);
             name = ConfigKeys.FLOUR_HD;
             bool = getConfigBool(name, comment, true);
             if (bool)
@@ -116,7 +116,7 @@ public class ConfigManager extends BaseConfig {
             else
                 flour_size = 16;
 
-            comment = I18n.translateToLocal(ConfigKeys.BUTTERED_BREAD_HD + ConfigKeys.COMMENT_EXTENTION);
+            comment = BakingMod.proxy.translate(ConfigKeys.BUTTERED_BREAD_HD + ConfigKeys.COMMENT_EXTENTION);
             name = ConfigKeys.BUTTERED_BREAD_HD;
             bool = getConfigBool(name, comment, true);
             if (bool)
@@ -124,7 +124,7 @@ public class ConfigManager extends BaseConfig {
             else
                 buttered_bread_size = 16;
 
-            comment = I18n.translateToLocal(ConfigKeys.BREAD_DOUGH_HD + ConfigKeys.COMMENT_EXTENTION);
+            comment = BakingMod.proxy.translate(ConfigKeys.BREAD_DOUGH_HD + ConfigKeys.COMMENT_EXTENTION);
             name = ConfigKeys.BREAD_DOUGH_HD;
             bool = getConfigBool(name, comment, true);
             if (bool)
@@ -135,12 +135,12 @@ public class ConfigManager extends BaseConfig {
 
         config.getCategory(BakingConstants.CATAGORY_REQUIRE_RESTART).setRequiresMcRestart(true);
 
-        comment = I18n.translateToLocal(ConfigKeys.CAKE_DEFAULT_CRAFTING_ALLOWED + ConfigKeys.COMMENT_EXTENTION);
+        comment = BakingMod.proxy.translate(ConfigKeys.CAKE_DEFAULT_CRAFTING_ALLOWED + ConfigKeys.COMMENT_EXTENTION);
         name = ConfigKeys.CAKE_DEFAULT_CRAFTING_ALLOWED;
         bool = getConfigBool(name, comment, false, BakingConstants.CATAGORY_REQUIRE_RESTART);
         defaultCraftCake = bool;
-
-        comment = I18n.translateToLocal(ConfigKeys.BREAD_DEFAULT_CRAFTING_ALLOWED + ConfigKeys.COMMENT_EXTENTION);
+        
+        comment = BakingMod.proxy.translate(ConfigKeys.BREAD_DEFAULT_CRAFTING_ALLOWED + ConfigKeys.COMMENT_EXTENTION);
         name = ConfigKeys.BREAD_DEFAULT_CRAFTING_ALLOWED;
         bool = getConfigBool(name, comment, false, BakingConstants.CATAGORY_REQUIRE_RESTART);
         defaultCraftBread = bool;
@@ -150,7 +150,7 @@ public class ConfigManager extends BaseConfig {
         bool = getConfigBool(name, comment, false, BakingConstants.CATAGORY_REQUIRE_RESTART);
         defaultCraftPumpkinPie = bool;
 
-        comment = I18n.translateToLocal(ConfigKeys.COOKIE_DEFAULT_CRAFTING_ALLOWED + ConfigKeys.COMMENT_EXTENTION);
+        comment = BakingMod.proxy.translate(ConfigKeys.COOKIE_DEFAULT_CRAFTING_ALLOWED + ConfigKeys.COMMENT_EXTENTION);
         name = ConfigKeys.COOKIE_DEFAULT_CRAFTING_ALLOWED;
         bool = getConfigBool(name, comment, false, BakingConstants.CATAGORY_REQUIRE_RESTART);
         defaultCraftPumpkinPie = bool;
