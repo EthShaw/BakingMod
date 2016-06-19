@@ -17,3 +17,5 @@
 !/gradle/wrapper/gradle-wrapper.jar
 
 build_number.properties
+
+/stuff

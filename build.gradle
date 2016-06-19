@@ -109,9 +109,6 @@ idea {
         downloadJavadoc = true
         downloadSources = true
     }
-    project {
-        languageLevel = '1.8'
-    }
 }
 
 
