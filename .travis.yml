@@ -15,7 +15,8 @@ notifications:
 
 before_install:
  - chmod +x gradlew
+ - git submodule update --init --recursive
 
 git:
   submodules: false
-before_install: git submodule update --init --recursive
+
