@@ -1,0 +1,3 @@
+[submodule "FishDog5000sCore"]
+	path = FishDog5000sCore
+	url = https://github.com/FishDog5000/FishDog5000sCore
