@@ -14,9 +14,9 @@ notifications:
   email: false
 
 before_install:
- - chmod +x gradlew
  - git submodule update --init --recursive
+ - chmod +x gradlew
 
 git:
-  submodules: false
+  submodules: true
 
