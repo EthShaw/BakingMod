@@ -34,6 +34,8 @@ public class OreDictionaryHandler {
         OreDictionary.registerOre("foodDough", BakingModItems.bread_dough);
         OreDictionary.registerOre("foodBreadDough", BakingModItems.bread_dough);
         OreDictionary.registerOre("foodFlour", BakingModItems.flour);
+        OreDictionary.registerOre("dustFlour", BakingModItems.flour);
+        OreDictionary.registerOre("materialFlour", BakingModItems.flour);
         OreDictionary.registerOre("foodUnmixedCakeBatter", BakingModItems.cake_batter_unmixed);
         OreDictionary.registerOre("foodCakeBatter", BakingModItems.cake_batter);
         OreDictionary.registerOre("foodPumpkinPieMix", BakingModItems.pumpkin_pie_mixture);
