@@ -50,7 +50,6 @@ public class BakingMod {
             MCVERSION = "@MCVERSION@",
             VERSION = "@VERSION@";
     //VERSIONS_URL = "http://pastebin.com/raw.php?i=Qfa74bZe";
-
     public static Logger logger;
 
     @Instance(MODID)
