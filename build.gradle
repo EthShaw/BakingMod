@@ -78,7 +78,7 @@ minecraft {
     mappings = config.mappings
     replace "@VERSION@", project.version
     replace "@MCVERSION@", config.minecraft_version
-    replace 'acceptedMinecraftVersions = ""', 'acceptedMinecraftVersions = "1.9.4,' + config.minecraft_version + '"'
+    replace 'acceptedMinecraftVersions = ""', 'acceptedMinecraftVersions = "' + config.supported_versions + '"'
     replace ")//@DEPEND@//(", ", "
     replace "@COREVERSION@", config.core_major + "." + config.core_minor + "." + config.core_patch + "-" + config.core_release_type + "+" + config.core_build
     replace "@FORGEVERSION@", config.forge_version
